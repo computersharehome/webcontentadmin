@@ -1,0 +1,11 @@
+﻿        <h2>data</h2>
+        <hr />
+<div style="height: 150px;" data-bind="koGrid: { data: myObservableArray }"></div>      
+<p data-bind="visible: !results">Fetching data ... </p>
+
+<ul data-bind="foreach: results, visible: results" style="display:none">
+  <li>
+    <span data-bind="text: cOY"></span>
+    <span data-bind="text: companyName"></span>
+  </li>
+</ul>

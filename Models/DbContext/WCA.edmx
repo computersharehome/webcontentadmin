@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="eIndicatorModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="eIndicatorModelStoreContainer">
+    <EntitySet Name="CompanyConfigs" EntityType="eIndicatorModel.Store.CompanyConfigs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CompanyDataExports" EntityType="eIndicatorModel.Store.CompanyDataExports" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Participants" EntityType="eIndicatorModel.Store.Participants" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="eIndicatorModel.Store.Users" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="CompanyConfigs">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="COY" Type="nvarchar" Nullable="true" MaxLength="25" />
+    <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="CompanyLogo" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="PhoneNumber_IsVisible" Type="bit" Nullable="true" />
+    <Property Name="PhoneNumber_IsRequired" Type="bit" Nullable="true" />
+    <Property Name="DOB_IsVisible" Type="bit" Nullable="true" />
+    <Property Name="DOB_IsRequired" Type="bit" Nullable="true" />
+    <Property Name="Location_IsVisible" Type="bit" Nullable="true" />
+    <Property Name="Location_IsRequired" Type="bit" Nullable="true" />
+    <Property Name="EmployeeId_Name" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="CustomText1Visible" Type="bit" Nullable="true" />
+    <Property Name="CustomText1Required" Type="bit" Nullable="true" />
+    <Property Name="CustomText1DefName" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="CustomText2Visible" Type="bit" Nullable="true" />
+    <Property Name="CustomText2Required" Type="bit" Nullable="true" />
+    <Property Name="CustomText2DefName" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="CustomText3Visible" Type="bit" Nullable="true" />
+    <Property Name="CustomText3Required" Type="bit" Nullable="true" />
+    <Property Name="CustomText3DefName" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="CustomText4Visible" Type="bit" Nullable="true" />
+    <Property Name="CustomText4Required" Type="bit" Nullable="true" />
+    <Property Name="CustomText4DefName" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="CustomText5Visible" Type="bit" Nullable="true" />
+    <Property Name="CustomText5Required" Type="bit" Nullable="true" />
+    <Property Name="CustomText5DefName" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="CustomDateTime1Visible" Type="bit" Nullable="true" />
+    <Property Name="CustomDateTime1Required" Type="bit" Nullable="true" />
+    <Property Name="CustomDateTime1DefName" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="CustomDateTime2Visible" Type="bit" Nullable="true" />
+    <Property Name="CustomDateTime2Required" Type="bit" Nullable="true" />
+    <Property Name="CustomDateTime2DefName" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="FileSendFrequency" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="AllowUpdate" Type="bit" Nullable="true" />
+    <Property Name="AllowDelete" Type="bit" Nullable="true" />
+    <Property Name="CreatedBy" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="CreatedDateTime" Type="datetime" Nullable="true" />
+    <Property Name="UpdatedBy" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="UpdatedDateTime" Type="datetime" Nullable="true" />
+    <Property Name="LastExtractionDate" Type="datetime" Nullable="true" />
+    <Property Name="EnableExtraction" Type="bit" Nullable="true" />
+  </EntityType>
+  <EntityType Name="CompanyDataExports">
+    <Key>
+      <PropertyRef Name="ExportID" />
+    </Key>
+    <Property Name="ExportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyID" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Participants">
+    <Key>
+      <PropertyRef Name="ParticipantID" />
+    </Key>
+    <Property Name="CompanyID" Type="int" Nullable="true" />
+    <Property Name="CompanyName" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="ParticipantID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="EmployeeId" Type="nvarchar" Nullable="true" MaxLength="25" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="true" />
+    <Property Name="Phone" Type="nvarchar" Nullable="true" MaxLength="25" />
+    <Property Name="DOB" Type="datetime" Nullable="true" />
+    <Property Name="Location" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="CustomText1" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="CustomText2" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="CustomText3" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="CustomText4" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="CustomText5" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="CustomDateTime1" Type="datetime" Nullable="true" />
+    <Property Name="CustomDateTime2" Type="datetime" Nullable="true" />
+    <Property Name="ExtractionDateTime" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Points" Type="decimal" Nullable="false" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="Employee" Type="bit" Nullable="false" />
+    <Property Name="DOB" Type="datetime" Nullable="false" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="eIndicatorModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityType Name="CompanyConfig">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="COY" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CompanyLogo" Type="Guid" />
+          <Property Name="PhoneNumber_IsVisible" Type="Boolean" />
+          <Property Name="PhoneNumber_IsRequired" Type="Boolean" />
+          <Property Name="DOB_IsVisible" Type="Boolean" />
+          <Property Name="DOB_IsRequired" Type="Boolean" />
+          <Property Name="Location_IsVisible" Type="Boolean" />
+          <Property Name="Location_IsRequired" Type="Boolean" />
+          <Property Name="EmployeeId_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomText1Visible" Type="Boolean" />
+          <Property Name="CustomText1Required" Type="Boolean" />
+          <Property Name="CustomText1DefName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CustomText2Visible" Type="Boolean" />
+          <Property Name="CustomText2Required" Type="Boolean" />
+          <Property Name="CustomText2DefName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CustomText3Visible" Type="Boolean" />
+          <Property Name="CustomText3Required" Type="Boolean" />
+          <Property Name="CustomText3DefName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CustomText4Visible" Type="Boolean" />
+          <Property Name="CustomText4Required" Type="Boolean" />
+          <Property Name="CustomText4DefName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CustomText5Visible" Type="Boolean" />
+          <Property Name="CustomText5Required" Type="Boolean" />
+          <Property Name="CustomText5DefName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CustomDateTime1Visible" Type="Boolean" />
+          <Property Name="CustomDateTime1Required" Type="Boolean" />
+          <Property Name="CustomDateTime1DefName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CustomDateTime2Visible" Type="Boolean" />
+          <Property Name="CustomDateTime2Required" Type="Boolean" />
+          <Property Name="CustomDateTime2DefName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="FileSendFrequency" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AllowUpdate" Type="Boolean" />
+          <Property Name="AllowDelete" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="7" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="7" />
+          <Property Name="LastExtractionDate" Type="DateTime" Precision="7" />
+          <Property Name="EnableExtraction" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="CompanyDataExport">
+          <Key>
+            <PropertyRef Name="ExportID" />
+          </Key>
+          <Property Name="ExportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Participant">
+          <Key>
+            <PropertyRef Name="ParticipantID" />
+          </Key>
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="CompanyName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ParticipantID" Type="Guid" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeId" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDateTime" Type="DateTime" Precision="7" />
+          <Property Name="Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Precision="7" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomText1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CustomText2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CustomText3" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CustomText4" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CustomText5" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CustomDateTime1" Type="DateTime" Precision="7" />
+          <Property Name="CustomDateTime2" Type="DateTime" Precision="7" />
+          <Property Name="ExtractionDateTime" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityContainer Name="eIndicatorEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CompanyConfigs" EntityType="Self.CompanyConfig" />
+          <EntitySet Name="CompanyDataExports" EntityType="Self.CompanyDataExport" />
+          <EntitySet Name="Participants" EntityType="Self.Participant" />
+          <EntitySet Name="Users" EntityType="eIndicatorModel.User" />
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Username" Type="String" Nullable="false" Unicode="true" FixedLength="false" MaxLength="Max" />
+          <Property Name="Points" Type="Decimal" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Employee" Type="Boolean" Nullable="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="7" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="eIndicatorModelStoreContainer" CdmEntityContainer="eIndicatorEntities">
+    <EntitySetMapping Name="CompanyConfigs">
+      <EntityTypeMapping TypeName="IsTypeOf(eIndicatorModel.CompanyConfig)">
+        <MappingFragment StoreEntitySet="CompanyConfigs">
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="COY" ColumnName="COY" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CompanyLogo" ColumnName="CompanyLogo" />
+          <ScalarProperty Name="PhoneNumber_IsVisible" ColumnName="PhoneNumber_IsVisible" />
+          <ScalarProperty Name="PhoneNumber_IsRequired" ColumnName="PhoneNumber_IsRequired" />
+          <ScalarProperty Name="DOB_IsVisible" ColumnName="DOB_IsVisible" />
+          <ScalarProperty Name="DOB_IsRequired" ColumnName="DOB_IsRequired" />
+          <ScalarProperty Name="Location_IsVisible" ColumnName="Location_IsVisible" />
+          <ScalarProperty Name="Location_IsRequired" ColumnName="Location_IsRequired" />
+          <ScalarProperty Name="EmployeeId_Name" ColumnName="EmployeeId_Name" />
+          <ScalarProperty Name="CustomText1Visible" ColumnName="CustomText1Visible" />
+          <ScalarProperty Name="CustomText1Required" ColumnName="CustomText1Required" />
+          <ScalarProperty Name="CustomText1DefName" ColumnName="CustomText1DefName" />
+          <ScalarProperty Name="CustomText2Visible" ColumnName="CustomText2Visible" />
+          <ScalarProperty Name="CustomText2Required" ColumnName="CustomText2Required" />
+          <ScalarProperty Name="CustomText2DefName" ColumnName="CustomText2DefName" />
+          <ScalarProperty Name="CustomText3Visible" ColumnName="CustomText3Visible" />
+          <ScalarProperty Name="CustomText3Required" ColumnName="CustomText3Required" />
+          <ScalarProperty Name="CustomText3DefName" ColumnName="CustomText3DefName" />
+          <ScalarProperty Name="CustomText4Visible" ColumnName="CustomText4Visible" />
+          <ScalarProperty Name="CustomText4Required" ColumnName="CustomText4Required" />
+          <ScalarProperty Name="CustomText4DefName" ColumnName="CustomText4DefName" />
+          <ScalarProperty Name="CustomText5Visible" ColumnName="CustomText5Visible" />
+          <ScalarProperty Name="CustomText5Required" ColumnName="CustomText5Required" />
+          <ScalarProperty Name="CustomText5DefName" ColumnName="CustomText5DefName" />
+          <ScalarProperty Name="CustomDateTime1Visible" ColumnName="CustomDateTime1Visible" />
+          <ScalarProperty Name="CustomDateTime1Required" ColumnName="CustomDateTime1Required" />
+          <ScalarProperty Name="CustomDateTime1DefName" ColumnName="CustomDateTime1DefName" />
+          <ScalarProperty Name="CustomDateTime2Visible" ColumnName="CustomDateTime2Visible" />
+          <ScalarProperty Name="CustomDateTime2Required" ColumnName="CustomDateTime2Required" />
+          <ScalarProperty Name="CustomDateTime2DefName" ColumnName="CustomDateTime2DefName" />
+          <ScalarProperty Name="FileSendFrequency" ColumnName="FileSendFrequency" />
+          <ScalarProperty Name="AllowUpdate" ColumnName="AllowUpdate" />
+          <ScalarProperty Name="AllowDelete" ColumnName="AllowDelete" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+          <ScalarProperty Name="LastExtractionDate" ColumnName="LastExtractionDate" />
+          <ScalarProperty Name="EnableExtraction" ColumnName="EnableExtraction" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanyDataExports">
+      <EntityTypeMapping TypeName="IsTypeOf(eIndicatorModel.CompanyDataExport)">
+        <MappingFragment StoreEntitySet="CompanyDataExports">
+          <ScalarProperty Name="ExportID" ColumnName="ExportID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Participants">
+      <EntityTypeMapping TypeName="IsTypeOf(eIndicatorModel.Participant)">
+        <MappingFragment StoreEntitySet="Participants">
+          <ScalarProperty Name="ParticipantID" ColumnName="ParticipantID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="CustomText1" ColumnName="CustomText1" />
+          <ScalarProperty Name="CustomText2" ColumnName="CustomText2" />
+          <ScalarProperty Name="CustomText3" ColumnName="CustomText3" />
+          <ScalarProperty Name="CustomText4" ColumnName="CustomText4" />
+          <ScalarProperty Name="CustomText5" ColumnName="CustomText5" />
+          <ScalarProperty Name="CustomDateTime1" ColumnName="CustomDateTime1" />
+          <ScalarProperty Name="CustomDateTime2" ColumnName="CustomDateTime2" />
+          <ScalarProperty Name="ExtractionDateTime" ColumnName="ExtractionDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(eIndicatorModel.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Employee" ColumnName="Employee" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams />
+  </Designer>
+</edmx:Edmx>
