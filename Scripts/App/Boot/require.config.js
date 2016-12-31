@@ -1,5 +1,5 @@
 ﻿var require = {
-    baseUrl: "/WebContent/",
+    baseUrl: "/",
     waitSeconds: 5,
     paths: {
         "bootstrap": "Scripts/Lib/bootstrap/bootstrap",
